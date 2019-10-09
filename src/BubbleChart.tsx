@@ -20,6 +20,7 @@ type itemObj = {
     v : number;
     x : number;
     y : number;
+    label : string;
 }
 
 class BubbleChart extends React.Component<Props, State> {
@@ -151,7 +152,7 @@ class BubbleChart extends React.Component<Props, State> {
         // render circle and text elements inside a group
         const texts = _.map(data, (item : itemObj, index : any) => {
             const props = this.props;
-            const fontSize = this.radiusScale(item.v) / 2;
+            const fontSize = this.radiusScale(item.v) / 2.5;
             return (
                 <g
                     key={index}
@@ -171,7 +172,7 @@ class BubbleChart extends React.Component<Props, State> {
                         fontSize={`${fontSize}px`}
                         fontWeight="bold"
                     >
-                        {item.v}
+                        {item.label}
                     </text>
                 </g>
             );
